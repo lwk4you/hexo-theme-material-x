@@ -10,6 +10,9 @@
         <br>
         <%- partial('meta', {post: post, position: 'footer'}) %>
       <% } %>
+      <% if(theme.word_count && !post.no_word_count){ %> 
+        <%- partial('post/word') %>
+        <% } %>
       <% if(post.prev || post.next){ %>
           <div class="prev-next">
               <% if(post.prev){ %>
@@ -25,6 +28,7 @@
                                 <% } %>
                               </a>
                           </h4>
+                         
                           <% if (post.prev.tags && post.prev.tags.length && post.prev.tags.each) { %>
                               <%
                               var items = [];
